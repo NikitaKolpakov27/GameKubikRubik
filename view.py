@@ -10,17 +10,9 @@ from PyQt5 import QtWidgets, QtCore, QtGui
 from PyQt5.QtCore import QModelIndex, Qt
 from PyQt5.QtGui import QPen, QColor, QMouseEvent
 from PyQt5.QtWidgets import QWidget
-
 import game
 
-
-
 class Example(QtWidgets.QWidget):
-    YELLOW = "ffff00"
-    BLUE = "0000ff"
-    GREEN = "008000"
-    RED = "ff0000"
-    EXIT_CODE_REBOOT = -123
 
     def __init__(self):
         super().__init__()
@@ -29,175 +21,52 @@ class Example(QtWidgets.QWidget):
     def action_cube_right_1(self):
         self.updateFrame()
         cube_full = game.cube_full
-        data1 = [["o", "o"], ["o", "o"]]
-        data1[0][0] = cube_full[0][0]
-        data1[0][1] = cube_full[0][1]
-        data1[1][0] = cube_full[1][0]
-        data1[1][1] = cube_full[1][1]
-
-        data1 = game.list_rot_right(data1)
-        cube_full[0][0] = data1[0][0]
-        cube_full[0][1] = data1[0][1]
-        cube_full[1][0] = data1[1][0]
-        cube_full[1][1] = data1[1][1]
-
-        game.cube_full = cube_full
+        game.cube_full = game.action_cube_right_1(cube_full, game.list_rot_right)
 
     def action_cube_left_1(self):
         self.updateFrame()
         cube_full = game.cube_full
-        data1 = [["o", "o"], ["o", "o"]]
-        data1[0][0] = cube_full[0][0]
-        data1[0][1] = cube_full[0][1]
-        data1[1][0] = cube_full[1][0]
-        data1[1][1] = cube_full[1][1]
-
-        data1 = game.list_rot_left(data1)
-        cube_full[0][0] = data1[0][0]
-        cube_full[0][1] = data1[0][1]
-        cube_full[1][0] = data1[1][0]
-        cube_full[1][1] = data1[1][1]
-
-        game.cube_full = cube_full
+        game.cube_full = game.action_cube_left_1(cube_full, game.list_rot_left)
 
     def action_cube_left_2(self):
         self.updateFrame()
         cube_full = game.cube_full
-        data1 = [["o", "o"], ["o", "o"]]
-        data1[0][0] = cube_full[0][2]
-        data1[0][1] = cube_full[0][3]
-        data1[1][0] = cube_full[1][2]
-        data1[1][1] = cube_full[1][3]
-
-        data1 = game.list_rot_left(data1)
-        cube_full[0][2] = data1[0][0]
-        cube_full[0][3] = data1[0][1]
-        cube_full[1][2] = data1[1][0]
-        cube_full[1][3] = data1[1][1]
-
-        game.cube_full = cube_full
+        game.cube_full = game.action_cube_left_2(cube_full, game.list_rot_left)
 
     def action_cube_right_2(self):
         self.updateFrame()
         cube_full = game.cube_full
-        data1 = [["o", "o"], ["o", "o"]]
-        data1[0][0] = cube_full[0][2]
-        data1[0][1] = cube_full[0][3]
-        data1[1][0] = cube_full[1][2]
-        data1[1][1] = cube_full[1][3]
-
-        data1 = game.list_rot_right(data1)
-        cube_full[0][2] = data1[0][0]
-        cube_full[0][3] = data1[0][1]
-        cube_full[1][2] = data1[1][0]
-        cube_full[1][3] = data1[1][1]
-
-        game.cube_full = cube_full
+        game.cube_full = game.action_cube_right_2(cube_full, game.list_rot_right)
 
     def action_cube_left_3(self):
         self.updateFrame()
         cube_full = game.cube_full
-        data1 = [["o", "o"], ["o", "o"]]
-        data1[0][0] = cube_full[2][0]
-        data1[0][1] = cube_full[2][1]
-        data1[1][0] = cube_full[3][0]
-        data1[1][1] = cube_full[3][1]
-
-        data1 = game.list_rot_left(data1)
-        cube_full[2][0] = data1[0][0]
-        cube_full[2][1] = data1[0][1]
-        cube_full[3][0] = data1[1][0]
-        cube_full[3][1] = data1[1][1]
-
-        game.cube_full = cube_full
-
+        game.cube_full = game.action_cube_left_3(cube_full, game.list_rot_left)
 
     def action_cube_right_3(self):
         self.updateFrame()
         cube_full = game.cube_full
-        data1 = [["o", "o"], ["o", "o"]]
-        data1[0][0] = cube_full[2][0]
-        data1[0][1] = cube_full[2][1]
-        data1[1][0] = cube_full[3][0]
-        data1[1][1] = cube_full[3][1]
-
-        data1 = game.list_rot_right(data1)
-        cube_full[2][0] = data1[0][0]
-        cube_full[2][1] = data1[0][1]
-        cube_full[3][0] = data1[1][0]
-        cube_full[3][1] = data1[1][1]
-
-        game.cube_full = cube_full
+        game.cube_full = game.action_cube_right_3(cube_full, game.list_rot_right)
 
     def action_cube_right_4(self):
         self.updateFrame()
         cube_full = game.cube_full
-        data1 = [["o", "o"], ["o", "o"]]
-        data1[0][0] = cube_full[2][2]
-        data1[0][1] = cube_full[2][3]
-        data1[1][0] = cube_full[3][2]
-        data1[1][1] = cube_full[3][3]
-
-        data1 = game.list_rot_right(data1)
-        cube_full[2][2] = data1[0][0]
-        cube_full[2][3] = data1[0][1]
-        cube_full[3][2] = data1[1][0]
-        cube_full[3][3] = data1[1][1]
-
-        game.cube_full = cube_full
+        game.cube_full = game.action_cube_right_4(cube_full, game.list_rot_right)
 
     def action_cube_left_4(self):
         self.updateFrame()
         cube_full = game.cube_full
-        data1 = [["o", "o"], ["o", "o"]]
-        data1[0][0] = cube_full[2][2]
-        data1[0][1] = cube_full[2][3]
-        data1[1][0] = cube_full[3][2]
-        data1[1][1] = cube_full[3][3]
-
-        data1 = game.list_rot_left(data1)
-        cube_full[2][2] = data1[0][0]
-        cube_full[2][3] = data1[0][1]
-        cube_full[3][2] = data1[1][0]
-        cube_full[3][3] = data1[1][1]
-
-        game.cube_full = cube_full
+        game.cube_full = game.action_cube_left_4(cube_full, game.list_rot_left)
 
     def action_cube_center_left(self):
         self.updateFrame()
         cube_full = game.cube_full
-        data1 = [["o", "o"], ["o", "o"]]
-        data1[0][0] = cube_full[1][1]
-        data1[0][1] = cube_full[1][2]
-        data1[1][0] = cube_full[2][1]
-        data1[1][1] = cube_full[2][2]
-
-        data1 = game.list_rot_left(data1)
-        cube_full[1][1] = data1[0][0]
-        cube_full[1][2] = data1[0][1]
-        cube_full[2][1] = data1[1][0]
-        cube_full[2][2] = data1[1][1]
-
-        game.cube_full = cube_full
-
+        game.cube_full = game.action_cube_center_left(cube_full, game.list_rot_left)
 
     def action_cube_center_right(self):
         self.updateFrame()
         cube_full = game.cube_full
-        data1 = [["o", "o"], ["o", "o"]]
-        data1[0][0] = cube_full[1][1]
-        data1[0][1] = cube_full[1][2]
-        data1[1][0] = cube_full[2][1]
-        data1[1][1] = cube_full[2][2]
-
-        data1 = game.list_rot_right(data1)
-        cube_full[1][1] = data1[0][0]
-        cube_full[1][2] = data1[0][1]
-        cube_full[2][1] = data1[1][0]
-        cube_full[2][2] = data1[1][1]
-
-        game.cube_full = cube_full
-
+        game.cube_full = game.action_cube_center_right(cube_full, game.list_rot_right)
 
     def setFullCube(self):
         cube_full = [["к", "к" ,"з" ,"з"], ["к", "к", "з", "з"], ["ж", "ж", "с", "с"], ["ж","ж" ,"с" ,"с"]]
@@ -429,7 +298,7 @@ class Example(QtWidgets.QWidget):
 
     def initUI(self):
         self.setGeometry(300, 300, 1000, 600)
-        self.setWindowTitle('Colours')
+        self.setWindowTitle('Игра')
 
         # """1-я грань"""
         # btn = QtWidgets.QPushButton(self)
@@ -492,6 +361,13 @@ class Example(QtWidgets.QWidget):
         btn.setText("Собрать")
         btn.clicked.connect(self.setFullCube)
         #btn.clicked.connect(self.newGame)
+
+        "Restart"
+        btn = QtWidgets.QPushButton(self)
+        btn.move(850, 245)
+        btn.setText("Начать новую игру")
+        btn.clicked.connect(self.newGame)
+
         self.show()
 
     def updateFrame(self):

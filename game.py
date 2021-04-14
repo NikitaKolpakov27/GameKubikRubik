@@ -92,6 +92,108 @@ def isSameElements(array):
     else:
         return False
 
+def action_cube_left_1(cube_full, func):
+    return action_cube_right_1(cube_full, func)
+
+def action_cube_right_1(cube_full, func):
+    cube = cube_full
+    data1 = [["o", "o"], ["o", "o"]]
+    data1[0][0] = cube_full[0][0]
+    data1[0][1] = cube_full[0][1]
+    data1[1][0] = cube_full[1][0]
+    data1[1][1] = cube_full[1][1]
+
+    data1 = func(data1)
+    cube_full[0][0] = data1[0][0]
+    cube_full[0][1] = data1[0][1]
+    cube_full[1][0] = data1[1][0]
+    cube_full[1][1] = data1[1][1]
+
+    cube_full = cube
+    return cube_full
+
+def action_cube_right_2(cube_full, func):
+    return action_cube_left_2(cube_full, func)
+
+def action_cube_left_2(cube_full, func):
+    cube = cube_full
+    data1 = [["o", "o"], ["o", "o"]]
+    data1[0][0] = cube_full[0][2]
+    data1[0][1] = cube_full[0][3]
+    data1[1][0] = cube_full[1][2]
+    data1[1][1] = cube_full[1][3]
+
+    data1 = func(data1)
+    cube_full[0][2] = data1[0][0]
+    cube_full[0][3] = data1[0][1]
+    cube_full[1][2] = data1[1][0]
+    cube_full[1][3] = data1[1][1]
+
+    cube_full = cube
+    return cube_full
+
+def action_cube_left_3(cube_full, func):
+    return action_cube_right_3(cube_full, func)
+
+def action_cube_right_3(cube_full, func):
+    cube = cube_full
+    data1 = [["o", "o"], ["o", "o"]]
+    data1[0][0] = cube[2][0]
+    data1[0][1] = cube[2][1]
+    data1[1][0] = cube[3][0]
+    data1[1][1] = cube[3][1]
+
+    data1 = func(data1)
+    cube[2][0] = data1[0][0]
+    cube[2][1] = data1[0][1]
+    cube[3][0] = data1[1][0]
+    cube[3][1] = data1[1][1]
+
+    cube_full = cube
+    return cube_full
+
+def action_cube_left_4(cube_full, func):
+    return action_cube_right_4(cube_full, func)
+
+def action_cube_right_4(cube_full, func):
+    cube = cube_full
+    data1 = [["o", "o"], ["o", "o"]]
+    data1[0][0] = cube[2][2]
+    data1[0][1] = cube[2][3]
+    data1[1][0] = cube[3][2]
+    data1[1][1] = cube[3][3]
+
+    data1 = func(data1)
+    cube[2][2] = data1[0][0]
+    cube[2][3] = data1[0][1]
+    cube[3][2] = data1[1][0]
+    cube[3][3] = data1[1][1]
+
+    cube_full = cube
+    return cube_full
+
+def action_cube_center_left(cube_full, func):
+    return action_cube_center_right(cube_full, func)
+
+def action_cube_center_right(cube_full, func):
+    cube = cube_full
+    data1 = [["o", "o"], ["o", "o"]]
+    data1[0][0] = cube[1][1]
+    data1[0][1] = cube[1][2]
+    data1[1][0] = cube[2][1]
+    data1[1][1] = cube[2][2]
+
+    data1 = func(data1)
+    cube[1][1] = data1[0][0]
+    cube[1][2] = data1[0][1]
+    cube[2][1] = data1[1][0]
+    cube[2][2] = data1[1][1]
+
+    cube_full = cube
+    return cube_full
+
+
+
 def checkWin(array):
     sres_1_demo = array[0]
     sres_1 = sres_1_demo[0:4]
@@ -104,12 +206,6 @@ def checkWin(array):
 
     sres_4_demo = array[3]
     sres_4 = sres_4_demo[0:4]
-
-    # if (isSameElements(sres_1) and isSameElements(sres_2) and
-    #         isSameElements(sres_3) and isSameElements(sres_4)):
-    #     return True
-    # else:
-    #     return False
 
     if (sres_1 == sres_2 and sres_3 == sres_4):
         return True
