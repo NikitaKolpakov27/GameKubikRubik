@@ -3,11 +3,11 @@ import sys
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QFont
 
-import main
+import game
 from PyQt5.QtWidgets import QMainWindow, QPushButton, QApplication, QWidget, QLabel
 
 from Rules import Rules
-from test1 import Example
+from view import Example
 
 
 class Greetings(QMainWindow):

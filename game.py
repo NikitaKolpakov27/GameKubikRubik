@@ -1,7 +1,7 @@
 import random
 import PyQt5
 import copy
-import test1
+import view
 
 cube1 = [["к", "ж"], ["с", "з"]]
 cube2 = [["ж", "к"], ["з", "с"]]
@@ -79,53 +79,7 @@ def rot_right_center(cube_full, func):
 def list_rot_left(data, times = 1):
     return list_rot_right(data, 4 - times)
 
-# print_array(cube1)
-# print()
-# print_array(list_rot_right(cube1))
-# print()
-# print_array(list_rot_left(cube1))
-test_cube1 = get_colours()
-test_cube2 = get_colours()
-test_cube3 = get_colours()
-test_cube4 = get_colours()
 
-# arr1 = [[1, 2], [3, 4]]
-# arr2 = [[1, 2], [3, 4]]
-#
-# arr_12 = upper_array(arr1, arr2)
-# print_array(arr_12)
-# print()
-#
-# arr1 = list_rot_right(arr1)
-# arr_12 = upper_array(arr1, arr2)
-# print_array(arr_12)
-
-cube_13 = upper_array(test_cube1, test_cube3)
-cube_24 = down_array(test_cube2, test_cube4)
-# print_array(cube_13)
-# print_array(cube_24)
-# print()
-cube_full = cube_13 + cube_24
-# cube_center = [["o", "o"], ["o", "o"]]
-#
-# cube_center[0][0] = cube_full[1][1]
-# cube_center[0][1] = cube_full[1][2]
-# cube_center[1][0] = cube_full[2][1]
-# cube_center[1][1] = cube_full[2][2]
-# #print_array(cube_center)
-#
-# cube_center = list_rot_right(cube_center)
-# cube_full[1][1] = cube_center[0][0]
-# cube_full[1][2] = cube_center[0][1]
-# cube_full[2][1] = cube_center[1][0]
-# cube_full[2][2] = cube_center[1][1]
-#
-# print_array(cube_full)
-
-# print_array(cube_full)
-# print()
-# cube_full = rot_right_center(cube_full, list_rot_right)
-# print_array(cube_full)
 def isSameElements(array):
     elem = array[0]
     count = 0
@@ -162,9 +116,26 @@ def checkWin(array):
     else:
         return False
 
+def newGame():
+    test_cube1 = get_colours()
+    test_cube2 = get_colours()
+    test_cube3 = get_colours()
+    test_cube4 = get_colours()
+
+    cube_13 = upper_array(test_cube1, test_cube3)
+    cube_24 = down_array(test_cube2, test_cube4)
+
+    cube_full = cube_13 + cube_24
+    return cube_full
+
+cube_full = newGame()
+
+
 if __name__ == "__main__":
-    arr = [["1", "1", "1", "2"], ["1", "3", "3", "3"], ["3", "3", "4", "4"], ["3", "3", "4", "4"]]
-    arr2 = [["r", "r", "g", "g"], ["r", "r", "g", "g"], ["y", "y", "b", "b"], ["y", "y", "b", "b"]]
-    arr3 = [["r", "r", "g", "g"], ["r", "r", "g", "g"], ["y", "y", "b", "b"], ["y", "y", "b", "b"]]
-    print(checkWin(arr))
-    print(checkWin(arr2))
+    print_array(cube_full)
+    print()
+
+    action = int(input("Введите число: "))
+    if (action == 1):
+        cube_full = newGame()
+        print_array(cube_full)
